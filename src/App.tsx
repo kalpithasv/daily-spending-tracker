@@ -19,7 +19,6 @@ const loadExpenses = (): Expense[] => {
 
 function App() {
   const [allExpenses, setAllExpenses] = useState<Expense[]>(loadExpenses);
-  const [activeExpenses, setActiveExpenses] = useState<Expense[]>([]);
   const [showHistory, setShowHistory] = useState(false);
 
   useEffect(() => {
@@ -28,11 +27,10 @@ function App() {
 
   const handleAddExpense = (expense: Expense) => {
     setAllExpenses([...allExpenses, expense]);
-    setActiveExpenses([...activeExpenses, expense]);
   };
 
   const togglePaid = (expenseId: string, friendName: string) => {
-    const updated = activeExpenses.map((e) => {
+    const updated = allExpenses.map((e) => {
       if (e.id === expenseId) {
         return {
           ...e,
@@ -43,11 +41,12 @@ function App() {
       }
       return e;
     });
-    setActiveExpenses(updated);
+    setAllExpenses(updated);
   };
 
   const deleteExpense = (expenseId: string) => {
-    setActiveExpenses(activeExpenses.filter((e) => e.id !== expenseId));
+    const updated = allExpenses.filter((e) => e.id !== expenseId);
+    setAllExpenses(updated);
   };
 
   const clearHistory = () => {
@@ -93,7 +92,7 @@ function App() {
             onClick={clearHistory}
             className="text-sm text-red-500 hover:underline mb-3"
           >
-            🧹 Clear History
+            🩹 Clear History
           </button>
           <ul className="space-y-2">
             {allExpenses.map((exp) => (
@@ -123,14 +122,14 @@ function App() {
 
             <div className="bg-white rounded p-4 shadow">
               <ExpenseList
-                expenses={activeExpenses}
+                expenses={allExpenses}
                 onTogglePaid={togglePaid}
                 onDelete={deleteExpense}
               />
             </div>
 
             <div className="bg-white rounded p-4 shadow">
-              <FriendSummary expenses={activeExpenses} />
+              <FriendSummary expenses={allExpenses} />
             </div>
           </div>
         </main>
