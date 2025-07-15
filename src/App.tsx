@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect, useState } from "react";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
@@ -71,7 +70,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-pink-50 font-sans">
+    <div className="min-h-screen bg-pink-50 font-sans flex flex-col">
       {/* Mobile Toggle Button */}
       <button
         className="lg:hidden fixed top-4 left-4 z-20 bg-pink-500 text-white px-3 py-2 rounded shadow"
@@ -80,7 +79,7 @@ function App() {
         {showHistory ? "Close History" : "Open History"}
       </button>
 
-      <div className="max-w-screen-xl mx-auto lg:flex">
+      <div className="max-w-screen-xl mx-auto lg:flex flex-1 w-full">
         {/* Sidebar */}
         <aside
           className={`bg-pink-100 p-4 shadow-md w-full lg:w-64 overflow-y-auto max-h-screen z-10 transition-transform duration-300 fixed lg:static top-0 h-full lg:translate-x-0 ${
@@ -136,6 +135,37 @@ function App() {
           </div>
         </main>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-pink-700 text-white py-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm mt-6">
+        <div>© 2025 KALPITHA S V</div>
+        <div className="flex space-x-4 mt-2 md:mt-0">
+          <a
+            href="https://github.com/kalpithasv"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+          >
+            <i className="fab fa-github text-xl hover:text-gray-300"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kalpitha-sv-582759252/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+          >
+            <i className="fab fa-linkedin text-xl hover:text-gray-300"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/kalpitha_sv"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+          >
+            <i className="fab fa-instagram text-xl hover:text-gray-300"></i>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
