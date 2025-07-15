@@ -1,0 +1,20 @@
+{
+  "name": "Daily Spending Tracker",
+  "short_name": "SpendingApp",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fde6ec",
+  "theme_color": "#ec4899",
+  "icons": [
+    {
+      "src": "/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

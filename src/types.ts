@@ -13,3 +13,7 @@ export type Expense = {
   friends: Friend[];
 };
 
+export interface FriendShare {
+  paid: number;
+  owe: number;
+}

@@ -7,6 +7,16 @@ interface Props {
 }
 
 const ExpenseList = ({ expenses, onTogglePaid, onDelete }: Props) => {
+  if (expenses.length === 0) {
+    return (
+      <div className="bg-white p-4 rounded shadow min-h-[200px] flex items-center justify-center">
+        <p className="text-gray-500 italic text-sm text-center">
+          No expenses yet! Add something to track 💸
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="mt-4">
       {expenses.map((exp) => {
