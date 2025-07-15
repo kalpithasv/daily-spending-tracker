@@ -113,7 +113,7 @@ function App() {
         {/* Main Content */}
         <main className="flex-1 p-4 mt-16 lg:mt-0">
           <h1 className="text-3xl font-bold text-center mb-6 text-pink-700 flex items-center justify-center gap-3">
-            <img src="/src/assets/logo.jpeg" alt="Logo" className="w-20 h-20 rounded-full" />
+            <img src="/logo.jpeg" alt="Logo" className="w-20 h-20 rounded-full" />
             Daily Spending Tracker
           </h1>
 
